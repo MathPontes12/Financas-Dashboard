@@ -12,7 +12,7 @@ const FormFormat = ({ nome, children }: FormFormatProps) => {
     return (
         <div className="flex flex-col gap-[5px]">
 
-            <TituloProvider value={{ className: "text-[15px] opacity-50", nome }}>
+            <TituloProvider value={{ className: "xl:text-[15px] text-[20px] opacity-50", nome }}>
                 <Titulo />
             </TituloProvider>
 

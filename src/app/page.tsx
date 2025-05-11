@@ -11,23 +11,23 @@ import Cards from "./Componentes/Cards/Cards";
 
 const Home = () => {
 
-      // ESTADO PARA CONTROLE DO LANÇAMENTO ADICIONADO
+  // ESTADO PARA CONTROLE DO LANÇAMENTO ADICIONADO
   const [lancamentos, setLancamentos] = useState<lancamentosProps[]>([])
 
-      // ESTADOS PARA CONTROLE DO VALORES DENTRO DO LANÇAMENTO ADICIONADO
+  // ESTADOS PARA CONTROLE DO VALORES DENTRO DO LANÇAMENTO ADICIONADO
   const [novoTitulo, setNovoTitulo] = useState('')
   const [novoValor, setNovoValor] = useState('')
   const [novaData, setNovaData] = useState('')
   const [novoTipo, setNovoTipo] = useState('')
 
 
-      // FUNÇAO DISPARADA NO CLIQUE DO BOTAO ADICIONAR
+  // FUNÇAO DISPARADA NO CLIQUE DO BOTAO ADICIONAR
   const AoAdicionar = () => {
-   
+
     if (novoTitulo !== '') {
-      
+
       // ADICIONA A COR DO TEXTO E PASSA PRA VARIAVEL COR 
-      const cor = novoTipo === 'entrada' ? 'text-green-500' : novoTipo === 'saida' ? 'text-red-700': '';
+      const cor = novoTipo === 'entrada' ? 'text-green-500' : novoTipo === 'saida' ? 'text-red-700' : '';
 
       // ATRIBUIÇAO NAS VARIAVEIS OS NOVOS VALORES PREENCHIDOS
       const novoLancamento = {
@@ -39,7 +39,7 @@ const Home = () => {
       };
 
       // ADICIONA NA LISTA LANCAMENTOS O NOVOLANCAMENTOS JUNTO COM OS VALORES LANCAMENTOS ANTERIORES (...lancamentos)
-      
+
       setLancamentos([...lancamentos, novoLancamento]);
 
       // ZERA OS CAMPOS PRA NOVO PREENCHIMENTO
@@ -53,7 +53,7 @@ const Home = () => {
 
 
   return (
-    <section className="bg-black xl:w-fit w-fit flex flex-col overflow-x-hidden
+    <section className="bg-black flex flex-col
       my-[40px] py-[10px] px-[30px] rounded-[20px] gap-[10px] xl:items-start items-center">
 
       <TituloProvider value={{ className: "text-[40px]", nome: "Finanças" }}>
@@ -78,15 +78,16 @@ const Home = () => {
         />
 
         <div className="flex flex-col gap-[20px] mt-[20px] xl:w-full w-fit place-self-center">
-          <Cards bgColor="bg-green-900" className="text-[18px]" nome="Entradas" valoresProCard={lancamentos} valorFinal="Entradas"/>
-          <Cards bgColor="bg-red-950" className="text-[18px]" nome="Saídas" valoresProCard={lancamentos} valorFinal="Saídas"/>
-          <Cards bgColor="bg-gray-800" className="text-[18px]" nome="Saldo" valoresProCard={lancamentos} valorFinal="Saldo"/>
+          <Cards bgColor="bg-green-900" nome="Entradas" valoresProCard={lancamentos} valorFinal="Entradas" />
+          <Cards bgColor="bg-red-950" nome="Saídas" valoresProCard={lancamentos} valorFinal="Saídas" />
+          <Cards bgColor="bg-gray-800" nome="Saldo" valoresProCard={lancamentos} valorFinal="Saldo" />
         </div>
       </main>
 
       <hr className="h-[2px] w-full bg-cinza" />
 
-      <ul className="mt-[20px]">
+      <ul className="mt-[20px] flex flex-col items-center">
+
         {lancamentos.map((lancamento, index) => {
           return (
             <li key={index}>

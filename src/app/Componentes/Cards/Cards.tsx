@@ -5,7 +5,7 @@ import { CardProps } from "./TypeCards"
 
 
 
-const Cards = ({ className, nome, bgColor, valoresProCard, valorFinal }: CardProps) => {
+const Cards = ({ nome, bgColor, valoresProCard, valorFinal }: CardProps) => {
 
     // FILTROS PRA PEGAR O VALOR DE ENTRADA E SAIDA
     const ValorEntrada = valoresProCard.filter(
@@ -35,7 +35,7 @@ const Cards = ({ className, nome, bgColor, valoresProCard, valorFinal }: CardPro
 
     return (
         <div className={`${bgColor} rounded-[10px] py-[15px] px-[25px] xl:w-[270px] w-[270px] flex flex-col gap-[5px]`}>
-            <TituloProvider value={{ className, nome }}>
+            <TituloProvider value={{ className: 'xl:text-[18px] text-[22px]', nome }}>
                 <Titulo />
             </TituloProvider>
             <p className="text-white text-[26px]">
