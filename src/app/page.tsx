@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Extract from "./Componentes/Extract/Extract";
 import Form from "./Componentes/Formulario/Form";
 import { TituloProvider } from "./Componentes/Title/TitleContext";
@@ -11,8 +11,22 @@ import Cards from "./Componentes/Cards/Cards";
 
 const Home = () => {
 
-  // ESTADO PARA CONTROLE DO LANÇAMENTO ADICIONADO
-  const [lancamentos, setLancamentos] = useState<lancamentosProps[]>([])
+  // ESTADO PARA CONTROLE DO LANÇAMENTO ADICIONADO JUNTO A FUNÇAO PARA SALVAR O ESTADO NO NAVEGADOR
+  const [lancamentos, setLancamentos] = useState<lancamentosProps[]>([]);
+
+  // USE EFFECT PRA RENDERIZAR O LOCALSTORAGE
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem('lancamentos');
+    if (dadosSalvos) {
+      setLancamentos(JSON.parse(dadosSalvos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('lancamentos', JSON.stringify(lancamentos));
+  }, [lancamentos]);
+
+ 
 
   // ESTADOS PARA CONTROLE DO VALORES DENTRO DO LANÇAMENTO ADICIONADO
   const [novoTitulo, setNovoTitulo] = useState('')
@@ -49,6 +63,12 @@ const Home = () => {
       setNovoTipo('');
     }
 
+  }
+
+  const aoDeletar = (titulo: string) => {
+    const novaLista = lancamentos.filter(lancamento => lancamento.nome !== titulo)
+    setLancamentos(novaLista)
+    console.log(novaLista)
   }
 
 
@@ -97,7 +117,9 @@ const Home = () => {
                 Valor={lancamento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 // TROCA A DATA PRO FORMATO BRASILEIRO
                 Data={new Date(lancamento.data).toLocaleDateString('pt-BR')}
-                corLancamento={lancamento.corLancamento} />
+                corLancamento={lancamento.corLancamento}
+                aoDeletar={aoDeletar}
+              />
             </li>
           )
         })}

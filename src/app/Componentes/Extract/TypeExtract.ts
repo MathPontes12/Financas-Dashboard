@@ -4,4 +4,5 @@ export interface ExtractProps {
     Valor: string
     Data: string
     corLancamento: string
+    aoDeletar: (Titulo:string) => void
 }
