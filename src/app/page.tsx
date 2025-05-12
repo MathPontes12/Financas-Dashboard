@@ -29,10 +29,10 @@ const Home = () => {
 
 
   // ESTADOS PARA CONTROLE DO VALORES DENTRO DO LANÇAMENTO ADICIONADO
-  const [novoTitulo, setNovoTitulo] = useState('')
-  const [novoValor, setNovoValor] = useState('')
-  const [novaData, setNovaData] = useState('')
-  const [novoTipo, setNovoTipo] = useState('')
+  const [novoTitulo, setNovoTitulo] = useState('');
+  const [novoValor, setNovoValor] = useState('');
+  const [novaData, setNovaData] = useState('');
+  const [novoTipo, setNovoTipo] = useState('');
 
 
   // FUNÇAO DISPARADA NO CLIQUE DO BOTAO ADICIONAR
@@ -72,9 +72,9 @@ const Home = () => {
   }
 
   const aoDeletar = (titulo: string) => {
-    const novaLista = lancamentos.filter(lancamento => lancamento.nome !== titulo)
-    setLancamentos(novaLista)
-    console.log(novaLista)
+    const novaLista = lancamentos.filter(lancamento => lancamento.nome !== titulo);
+    setLancamentos(novaLista);
+    console.log(novaLista);
   }
 
 
