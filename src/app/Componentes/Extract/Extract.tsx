@@ -4,6 +4,7 @@ import { ExtractProps } from "./TypeExtract"
 
 
 const Extract = ({ Titulo, Valor, Data, corLancamento, aoDeletar }: ExtractProps) => {
+
     return (
 
         <ul className="xl:grid xl:grid-cols-7 flex flex-col border-[1px] xl:px-[20px] px-[10px] rounded-[5px] py-[10px]

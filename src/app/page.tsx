@@ -26,7 +26,7 @@ const Home = () => {
     localStorage.setItem('lancamentos', JSON.stringify(lancamentos));
   }, [lancamentos]);
 
- 
+
 
   // ESTADOS PARA CONTROLE DO VALORES DENTRO DO LANÇAMENTO ADICIONADO
   const [novoTitulo, setNovoTitulo] = useState('')
@@ -51,6 +51,12 @@ const Home = () => {
         tipo: novoTipo,
         corLancamento: cor
       };
+
+      const ano = Number(novaData.split("-")[0]);
+      if (ano < 1900 || ano > 2100) {
+        alert("Ano inválido. Use um ano com 4 dígitos válido.");
+        return;
+      }
 
       // ADICIONA NA LISTA LANCAMENTOS O NOVOLANCAMENTOS JUNTO COM OS VALORES LANCAMENTOS ANTERIORES (...lancamentos)
 
@@ -116,7 +122,7 @@ const Home = () => {
                 //TROCA O ESTILO DE REPRESENTAÇÃO DE DINHEIRO PRO FORMATO DO BRASIL (R$ e ,)
                 Valor={lancamento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 // TROCA A DATA PRO FORMATO BRASILEIRO
-                Data={new Date(lancamento.data).toLocaleDateString('pt-BR')}
+                Data={new Date(lancamento.data + 'T00:00:00').toLocaleDateString('pt-BR')}
                 corLancamento={lancamento.corLancamento}
                 aoDeletar={aoDeletar}
               />
