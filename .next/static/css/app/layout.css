@@ -238,8 +238,29 @@
   .sticky {
     position: sticky;
   }
+  .right-10 {
+    right: calc(var(--spacing) * 10);
+  }
+  .right-13 {
+    right: calc(var(--spacing) * 13);
+  }
+  .right-15 {
+    right: calc(var(--spacing) * 15);
+  }
+  .right-16 {
+    right: calc(var(--spacing) * 16);
+  }
+  .right-18 {
+    right: calc(var(--spacing) * 18);
+  }
+  .right-20 {
+    right: calc(var(--spacing) * 20);
+  }
   .right-35 {
     right: calc(var(--spacing) * 35);
+  }
+  .right-55 {
+    right: calc(var(--spacing) * 55);
   }
   .\!container {
     width: 100% !important;

@@ -22,7 +22,7 @@ const Extract = ({ Titulo, Valor, Data, corLancamento, aoDeletar }: ExtractProps
 
             <button 
             onClick={() => aoDeletar(Titulo)} 
-            className="cursor-pointer hover:opacity-50 xl:place-self-end xl:static absolute right-35">
+            className="cursor-pointer hover:opacity-50 xl:place-self-end xl:static absolute right-16">
                 <Image width={20} height={20} src="/images/close.png" alt="botao de deletar" />
             </button>
         </ul>
